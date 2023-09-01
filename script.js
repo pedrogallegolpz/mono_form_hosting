@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 async function agregarAlCSV(lineaCSV) {
     // Definir la URL del archivo CSV en tu repositorio.
-    const csvURL = 'https://raw.github.com/pedrogallegolpz/mono_form_hosting/main/historial.csv';
+    const csvURL = 'https://github.com/pedrogallegolpz/mono_form_hosting/blob/main/historial.csv';
 
     try {
         // Obtener el contenido actual del archivo CSV.
