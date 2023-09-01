@@ -1,4 +1,4 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbyCWrznjm5EuUMYJ8VO1OiMzBhJGHv5g3idVCnuRkoYmj0ywyonT762YxGBIe-f36u0/exec'
+const scriptURL = 'https://script.google.com/macros/s/AKfycbzSTpjf9VpsJuKzH5MIEbiZaavwhI-_UUicwfuuYXA/dev'
 const form = document.forms['traspasoForm']
 
 form.addEventListener('submit', e => {
