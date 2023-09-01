@@ -17,7 +17,7 @@
     <p id="mensaje"></p>
 
     <script>
-      let scriptURL = 'https://script.google.com/macros/s/AKfycbzIjWj4oTIVhvWbNkHpO8KnVxPn3Uv6xpEAelROPY4z1ywyJPZcTOEdQAgqJCBtHEjJ/exec'
+      let scriptURL = 'https://script.google.com/macros/s/AKfycbw8WBPAx5DtAJLP2nfzTIAYUJiXAW3IIpZyNSjxyJ4ySBCV27JOjCW0J9YSU0x7I-bM/exec'
       let form = document.forms['traspasoForm']
 
       
@@ -29,6 +29,8 @@
         console.log(antiguoPoseedor)
         console.log(nuevoPoseedor)
         console.log(form)
+
+
         fetch(scriptURL, { 
           method: 'POST', 
           body: new FormData(form)
@@ -41,7 +43,7 @@
           
           
         })
-        .catch(error => console.error('Error!', error.message))
+        .catch(error => alert('No se han registrado'))
       })
     </script>
 
