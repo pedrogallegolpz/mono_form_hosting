@@ -22,7 +22,7 @@ async function agregarAlCSV(lineaCSV) {
 
     try {
         // Obtener el contenido actual del archivo CSV.
-        const respuesta = await fetch(csvURL);
+        const respuesta = await fetch(csvURL, {mode: 'no-cors'});
         const contenidoActual = await respuesta.text();
 
         // Agregar la nueva línea al contenido.
