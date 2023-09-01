@@ -12,10 +12,33 @@ document.addEventListener("DOMContentLoaded", function () {
         const csvLine = `${nombre},${edad}`;
 
         // Llama a la función para agregar la línea al archivo CSV en GitHub.
-        agregarAlCSV(csvLine);
+        agregarAlCSV2(nombre,edad);
     });
 });
 
+async function agregarAlCSV2(nombre,edad){
+    const xhr = new XMLHttpRequest();
+
+      const url = 'https://github.com/pedrogallegolpz/mono_form_hosting/blob/main/historial.csv';
+
+
+      const data = {
+        nombre: nombre,
+        edad: edad,
+      };
+
+      xhr.open('POST', url);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify(data));
+
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          alert('Los datos se guardaron correctamente.');
+        } else {
+          alert('Ocurrió un error.');
+        }
+      };
+}
 async function agregarAlCSV(lineaCSV) {
     // Definir la URL del archivo CSV en tu repositorio.
     const csvURL = 'https://github.com/pedrogallegolpz/mono_form_hosting/blob/main/historial.csv';
