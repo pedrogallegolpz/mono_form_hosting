@@ -1,9 +1,20 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title> PRUEBA </title>
-  </head>
+<head>
+    <title>Formulario de Traspaso</title>
+</head>
+<body>
+    <h1>Formulario de Traspaso</h1>
+    <form id="traspasoForm">
+      Nombre del antiguo poseedor: <input type="text" id="antiguoPoseedor" required><br>
+      Identificador secreto del nuevo poseedor: <input type="text" id="nuevoPoseedor" required><br>
+      <button type="submit">
+        Enviar
+      </button>
+    </form>
+    <p id="mensaje"></p>
 
-  <body>
-    <h1> BODY </h1>
-  </body>
+    <script src="traspaso.js"></script>
+
+</body>
 </html>
