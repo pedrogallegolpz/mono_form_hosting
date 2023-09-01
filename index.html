@@ -5,26 +5,44 @@
 </head>
 <body>
     <h1>Formulario de Traspaso</h1>
-    <form id="traspasoForm">
-      Nombre del antiguo poseedor: <input type="text" id="antiguoPoseedor" required><br>
-      Identificador secreto del nuevo poseedor: <input type="text" id="nuevoPoseedor" required><br>
-      <button type="submit">
-        Enviar
-      </button>
+    
+
+    <form id= traspasoForm action="/submit" method="post">
+      <input type="text" id="antiguoPoseedor" name="antiguoPoseedor" placeholder="antiguoPoseedor">
+      <input type="text" id="nuevoPoseedor" name="nuevoPoseedor" placeholder="nuevoPoseedor">
+      <input type="submit" value="Enviar">
     </form>
+  
+
     <p id="mensaje"></p>
 
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzSTpjf9VpsJuKzH5MIEbiZaavwhI-_UUicwfuuYXA/dev'
-        const form = document.forms['traspasoForm']
-        
-        form.addEventListener('submit', e => {
-          e.preventDefault()
-          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => console.log('Success!', response))
-            .catch(error => console.error('Error!', error.message))
+      let scriptURL = 'https://script.google.com/macros/s/AKfycbzIjWj4oTIVhvWbNkHpO8KnVxPn3Uv6xpEAelROPY4z1ywyJPZcTOEdQAgqJCBtHEjJ/exec'
+      let form = document.forms['traspasoForm']
+
+      
+      
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        var antiguoPoseedor = document.getElementById('antiguoPoseedor').value;
+        var nuevoPoseedor = document.getElementById('nuevoPoseedor').value;
+        console.log(antiguoPoseedor)
+        console.log(nuevoPoseedor)
+        console.log(form)
+        fetch(scriptURL, { 
+          method: 'POST', 
+          body: new FormData(form)
         })
-        
+        .then((res) => {
+          if (res.status == 200){
+            alert('Datos registrados correctamente');
+            console.log('Success!', res)
+          }
+          
+          
+        })
+        .catch(error => console.error('Error!', error.message))
+      })
     </script>
 
 </body>
