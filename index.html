@@ -1,16 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Formulario de Registro</title>
+    <title>Formulario de Traspaso</title>
 </head>
 <body>
-    <h1>Formulario de Registro</h1>
-    <form id="registroForm">
-        Nombre: <input type="text" id="nombre" required><br>
-        Edad: <input type="number" id="edad" required><br>
-        <input type="submit" value="Registrar">
-    </form>
+    <h1>Formulario de Traspaso</h1>
+    
 
-    <script src="script.js"></script>
+    <form id= traspasoForm action="/submit" method="post">
+      <input type="text" id="antiguoPoseedor" name="antiguoPoseedor" placeholder="antiguoPoseedor">
+      <input type="text" id="nuevoPoseedor" name="nuevoPoseedor" placeholder="nuevoPoseedor">
+      <input type="submit" value="Enviar">
+    </form>
+  
+
+    <p id="mensaje"></p>
+
+    <script>
+      let scriptURL = 'https://script.google.com/macros/s/AKfycbzIjWj4oTIVhvWbNkHpO8KnVxPn3Uv6xpEAelROPY4z1ywyJPZcTOEdQAgqJCBtHEjJ/exec'
+      let form = document.forms['traspasoForm']
+
+      
+      
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        var antiguoPoseedor = document.getElementById('antiguoPoseedor').value;
+        var nuevoPoseedor = document.getElementById('nuevoPoseedor').value;
+        console.log(antiguoPoseedor)
+        console.log(nuevoPoseedor)
+        console.log(form)
+        fetch(scriptURL, { 
+          method: 'POST', 
+          body: new FormData(form)
+        })
+        .then((res) => {
+          if (res.status == 200){
+            alert('Datos registrados correctamente');
+            console.log('Success!', res)
+          }
+          
+          
+        })
+        .catch(error => console.error('Error!', error.message))
+      })
+    </script>
+
 </body>
 </html>
